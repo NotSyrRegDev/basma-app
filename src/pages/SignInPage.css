@@ -1,0 +1,101 @@
+.main_signin_section {
+    margin-top: 6.5rem;
+    background: #fff;
+    padding: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+.login_already {
+    font-size: 24px;
+    font-family: 'Sarala', sans-serif;;
+    font-weight: lighter;
+    color: #01010187;
+}
+.grid_singin .g-col-2 {
+    grid-gap: 3.5rem;
+}
+.signIn_vector {
+    margin: 2.5rem 0;
+}
+.signIn_vector img {
+    max-height:  25rem;
+
+    max-width: 90%;
+}
+
+.input_action_div {
+   
+    margin: 2.5rem 0;
+}
+.input_action_div {
+    position: relative;
+
+}
+.input_form {
+    padding-top: 2.5rem;
+   background: #323645;
+   outline: none;
+   border: 3px solid #272a35;
+   border-radius: 20px;
+   padding: 0.5rem 1.5rem;
+   color: #fff;
+   font-family: 'Sarala' , sans-serif;
+   font-weight: lighter;
+   font-size: 18px;
+   width: 100%;
+   min-height: auto;
+   
+
+}
+.input_form_icon {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+}
+
+.input_form::placeholder {
+    color: #fff;
+    font-family: 'Sarala' , sans-serif;
+    font-weight: lighter;
+}
+
+@media (max-width: 700px) {
+    .login_already {
+        font-size: 20px;
+    }
+    .grid_singin .g-col-2 {
+        grid-template-columns: repeat(1 , 1fr);
+        display: block;
+        flex: none;
+    }
+    .input_form  {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .signIn_info {
+        padding-top: 2.5rem;
+    }
+    .main_signin_section {
+        padding: 0.5rem;
+    }
+    .login_already {
+        font-size: 15px;
+    }
+    .input_form  {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 250px) {
+    .login_already {
+        font-size: 12px;
+    }
+    .input_form_icon {
+        display: none;
+    }
+    .input_form {
+        padding: 0.3rem 0.8rem;
+    }
+}

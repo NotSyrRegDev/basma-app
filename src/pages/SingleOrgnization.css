@@ -1,0 +1,38 @@
+
+.profile_orgnization {
+    margin-top: 6.5rem;
+    background: #fff;
+    padding: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+
+.profile_avatar {
+    max-height: 15rem;
+    max-width: 100%;
+    border: 3px solid #01010169;
+    margin-right: 2.5rem;
+}
+
+.g-col-org {
+    display: grid;
+    grid-template-columns: 2fr 1fr ;
+    grid-gap: 2.5rem;
+}
+
+@media (max-width: 700px) {
+    .g-col-org  {
+        grid-template-columns: repeat(1 , 1fr);
+    }
+}
+
+@media (max-width: 450px) {
+    .main_headline_sm {
+        margin-top: 1.2rem;
+    }
+    .signIn_info {
+        display: block !important;
+        flex: none !important; 
+        text-align: center;
+    }
+}

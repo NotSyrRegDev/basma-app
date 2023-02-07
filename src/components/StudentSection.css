@@ -1,0 +1,61 @@
+
+.studentSection {
+    padding: 2.5rem 0;
+    background: #fff;
+    margin-top: 5.5rem;
+}
+
+.grid_student_section .g-col-2 {
+    grid-gap: 3.5rem;
+}
+
+.info_headline {
+    font-size: 18px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: lighter;
+    color: #010101;
+}
+.single_info_div {
+    margin-top: 2.5rem;
+}
+
+.student_image img {
+    min-height: 25rem;
+    min-width: 100%;
+}
+
+@media (max-width: 700px) {
+    .info_headline  {
+        font-size: 16px;
+    }
+    .grid_student_section .g-col-2{
+        flex: none;
+        display: block;
+        grid-template-columns: repeat(1 , 1fr) !important;
+
+    }
+    .student_image {
+        margin-top: 3.5rem;
+    }
+    .student_image img {
+            min-height: 20rem;
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    .info_headline  {
+        font-size: 14px;
+    }
+    
+}
+
+@media (max-width: 350px) {
+    .info_headline  {
+        font-size: 12px;
+    }
+    .student_image img {
+        min-height: 10rem !important;
+    max-width: 100% !important;
+}
+}

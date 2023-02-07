@@ -1,0 +1,19 @@
+.main_signup_section {
+    margin-top: 6.5rem;
+    background: #fff;
+    padding: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+.loading_spinner {
+    max-height: 5.5rem;
+}
+
+
+@media (max-width: 400px) {
+
+    .main_signup_section {
+        padding: 0.5rem;
+    }
+
+}

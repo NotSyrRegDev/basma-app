@@ -1,0 +1,181 @@
+.ul_flex {
+    display: flex;
+}
+
+.ul_flex li {
+    margin: 0 1.2rem;
+}
+.ul_flex li a:hover {
+    font-weight: bold;
+}
+.ul_flex li.active {
+    padding-bottom: 8px;
+   border-bottom: 1px solid #010101;
+}
+.ul_flex li a {
+    font-size: 16px;
+    color: #010101;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: lighter;
+}
+.login_btn {
+    background-color: #f42a34;
+    padding: 0.5rem 2.5rem;
+    border-radius: 150px;
+    -webkit-box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    -moz-box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    color: #fff;
+}
+.signup_btn {
+    background-color: #5c6a63;
+    padding: 0.5rem 2.5rem;
+    border-radius: 150px;
+    -webkit-box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    -moz-box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    color: #fff;
+  
+}
+
+.p_small {
+    padding: 6px;
+}
+.logout_btn {
+    margin-left: 1.2rem;
+    font-size: 15px;
+    background-color: #f42a34;
+    padding: 0.4rem 1.4rem;
+    border-radius: 150px;
+    -webkit-box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    -moz-box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    box-shadow: -7px 58px 65px -18px rgba(0,0,0,0.86);
+    color: #fff;
+  
+}
+.nav_icon {
+    max-height: 1.5rem;
+    margin-right: 0.8rem;
+}
+
+.user_action {
+    display: flex;
+    align-items: center;
+}
+.user_action img {
+    padding: 5px;
+    border: 1px solid #010101;
+    border-radius: 250px;
+    max-height: 5rem;
+    margin-right: 10px;
+}
+.user_action p {
+    font-family: 'Sarala', sans-serif;;
+    font-size: 16px;
+}
+
+.navbar_mobile_div {
+    display: none;
+}
+
+.navbar_slide_div {
+    position: relative;
+    position: fixed;
+    background: #fff;
+    padding: 1.5rem 0.8rem;
+    width: 42%;
+    height: 100%;
+    z-index: 999;
+    top: 5%;
+    left: -70%;
+    transition: all 0.4s linear;
+
+}
+.navbar_slide_div.active {
+    left: 3%;
+}
+
+.navbar_slide_div .close_icon {
+    position: absolute;
+    top: 5%;
+    right: 8%;
+    max-height: 2rem;
+}
+.ul_block li {
+   margin: 1.5rem 0;
+}
+.ul_block li a{
+    font-size: 13px;
+    color: #010101;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: lighter;
+    line-height: 38px;
+}
+.ul_block li a:hover{
+    padding-bottom: 4px;
+   border-bottom: 1px solid #010101;
+}
+
+@media (max-width: 900px) {
+    .login_btn {
+        padding: 0.5rem 1.8rem;
+        font-size: 16px;
+    }
+    .signup_btn {
+        padding: 0.5rem 1.8rem;
+        font-size: 16px;
+    }
+    .user_action img {
+        max-height: 3rem;
+        margin-right: 8px;
+     
+    }
+
+    .nav_icon {
+        max-height: 1rem;
+    }
+    .ul_flex li {
+        margin: 0 0.8rem;
+    }
+    .ul_flex li a {
+        font-size: 14px;
+
+    }
+
+    .user_action p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .navbar_mobile_div {
+        display: initial !important;
+    }
+    .navbar_desktop_div {
+        display: none !important;
+    }
+    
+}
+
+@media (max-width: 400px) {
+    .login_btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 16px;
+    }
+    .signup_btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 14px;
+    }
+    .navbar_slide_div {
+        width: 64%;
+    }
+    .user_action img {
+        max-height: 2.5rem;
+        margin-right: 4px;
+    }
+    .user_action p {
+        font-size: 12px;
+    }
+ 
+}

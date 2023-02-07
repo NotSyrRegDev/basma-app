@@ -1,0 +1,29 @@
+
+.main__footer {
+    background: #fff;
+    padding: 2.5rem;
+    margin-top: 5.5rem;
+}
+
+@media (max-width: 750px) {
+    .main__footer div .main_headline {
+        font-size: 22px;
+        margin-right: 0.5rem;
+    }
+   
+   
+}
+
+@media (max-width: 550px) {
+    .main__footer div {
+        display: block !important;
+        text-align: center;
+    }
+    .main__footer div .main_headline {
+        font-size: 18px;
+        margin-bottom: 1.8rem;
+    }
+   
+}
+
+

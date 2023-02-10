@@ -68,7 +68,7 @@ function Map() {
             setSelectedPark(park);
           }}
           icon={{
-            url: `/ambulance.svg`,
+            url: `/skateboarding.svg`,
             scaledSize: new window.google.maps.Size(25, 25)
           }}
         />
@@ -103,8 +103,8 @@ export default function App() {
     <div style={{ width: "100vw", height: "100vh" }}>
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
-          "AIzaSyCMsrfVkncShzBcb1jWk6_okXOdcq5JQ5I"
-        }`}
+          process.env.REACT_APP_GOOGLE_KEY
+        }&callback=Function.prototype`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100%` }} />}
         mapElement={<div style={{ height: `100%` }} />}

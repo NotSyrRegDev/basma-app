@@ -9,6 +9,7 @@ import SingleOrgnization from './pages/SingleOrgnization';
 import ReportPage from './pages/ReportPage';
 import Navbar from './components/Navbar';
 import AdminPage from './pages/AdminPage';
+import Footer from './components/Footer';
 
 
 const MainRouter = () => {
@@ -79,6 +80,7 @@ const MainRouter = () => {
          
         
        </Routes>
+       <Footer />
      
      </BrowserRouter>
     </div>

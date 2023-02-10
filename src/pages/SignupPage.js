@@ -48,15 +48,24 @@ const SignupPage = () => {
             switch(agency) {
                 case "Red Crescent":
                     photoUrl = "https://i.ibb.co/GnrwSGH/orginzation-1.png";
+                    break;
                 case "Voluntary health programme":
                     photoUrl = "https://i.ibb.co/XprPXMb/orginzation-2.jpg";
+                    break;
                 case "SMAV":
                     photoUrl = "https://i.ibb.co/z766Lpf/orginzation-3.png";
+                    break;
                 
                 case "Ministry of Health":
                     photoUrl = "https://i.ibb.co/NTyB0YX/orginzation-4.png";
+                    break;
+
                 case "Health volunteering":
                     photoUrl = "https://i.ibb.co/KW9BqxM/orginzation-5.png";
+                    break;
+                    
+                default :
+                    photoUrl = "https://i.ibb.co/GnrwSGH/orginzation-1.png"
             }
             setError('');
 
@@ -144,7 +153,7 @@ const SignupPage = () => {
                         const selectedAgency = e.target.value;
                         setAgency(selectedAgency);
                       }} >
-                       <option value="" disabled selected hidden>Choose an agency</option>
+                       <option value="" disabled  hidden>Choose an agency</option>
                   <option value="Red Crescent">Red Crescent</option>
                   <option value="Voluntary health programme">Voluntary health programme</option>
                   <option value="SMAV">SMAV</option>

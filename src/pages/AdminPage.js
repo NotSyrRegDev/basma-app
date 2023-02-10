@@ -13,21 +13,21 @@ const AdminPage = () => {
 
     const handleShown =  ( show ) => {
         
-        if (show == "users") {
+        if (show === "users") {
 
             setManageUsers(true);
             setManageCases(false);
             setManageOrg(false);
         }
         
-        if (show == "cases") {
+        if (show === "cases") {
 
             setManageUsers(false);
             setManageCases(true);
             setManageOrg(false);
         }
         
-        if (show == "organizations") {
+        if (show === "organizations") {
 
             setManageUsers(false);
             setManageCases(false);

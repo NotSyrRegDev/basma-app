@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './utlity.css';
-import App from './App';
 import MainRouter from './MainRouter';
 
 import * as serviceWorker from './serviceWorker';

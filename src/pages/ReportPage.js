@@ -143,7 +143,7 @@ const ReportPage = () => {
                             const selectedSituation = e.target.value;
                             setCodeSituation(selectedSituation);
                           }} name="situation" id="situation" className="input_form">
-                          <option value="" disabled selected hidden>Choose case situation</option>
+                         <option value="DEFAULT" disabled>Choose case situation</option>
                       <option value="Stable">  Stable </option>
                       <option value="Medium"> Medium</option>
                       <option value="Emergency"> Emergency </option>
@@ -155,7 +155,7 @@ const ReportPage = () => {
                     
                         <div className="input_action_div">
                      
-                            <input id="location"  value={`${isGeolocationAvailable ? 'Location Located ✅' : 'Location Unlocated ❌'}`
+                            <input id="location" readOnly  value={`${isGeolocationAvailable ? 'Location Located ✅' : 'Location Unlocated ❌'}`
                             }
                             placeholder='Location...' type="text" className='input_form'  />
                             <img src="/images/icons/location.png" alt="" className="mid_icon input_form_icon" />

@@ -22,6 +22,7 @@ export class CurrentLocation extends React.Component {
       if (!c) return;
 
       return React.cloneElement(c, {
+      
         map: this.map,
         google: this.props.google,
         mapCenter: this.state.currentLocation

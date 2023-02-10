@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import { Link , Navigate, useNavigate } from 'react-router-dom';
+import { Link , Navigate } from 'react-router-dom';
 import    { collection , where , query , db , getDocs, signInWithEmailAndPassword, auth } from '../firebase';
 import './SignInPage.css';
 
@@ -11,10 +11,8 @@ const SignInPage = () => {
 
     const [password , setPassword] = useState('');
 
-    const [userExist , setUserExist] = useState(false);
-    const [userAuthArray , setUserAuthArray] = useState([]);
 
-    const navigate = useNavigate();
+
 
     const [error , setError] = useState('');
     const [loading , setLoading] = useState(false);

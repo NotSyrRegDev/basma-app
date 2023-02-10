@@ -38,6 +38,10 @@
   
 }
 
+.agency_avatar {
+    width: 4rem;
+    height: 4rem;
+}
 .p_small {
     padding: 6px;
 }

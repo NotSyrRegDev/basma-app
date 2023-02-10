@@ -6,7 +6,7 @@ import StudentSection from '../components/StudentSection';
 import ObjectiveSection from '../components/ObjectiveSection';
 import CategoriesSection from '../components/CategoriesSection';
 import StatisticsSection from '../components/StatisticsSection';
-import Footer from '../components/Footer';
+
 
 
 const Home = () => {
@@ -29,7 +29,7 @@ const Home = () => {
 
                     <StatisticsSection />
 
-                    <Footer />
+                 
                
             </div>
     </div>

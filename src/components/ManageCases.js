@@ -1,4 +1,4 @@
-import React , {useState , useEffect, useCallback} from 'react';
+import React , {useState , useEffect} from 'react';
 import {collection   ,  doc , db , getDocs , deleteDoc , setDoc , query , where} from '../firebase';
 import { useGeolocated } from "react-geolocated";
 
@@ -126,7 +126,7 @@ setUpdateDown(!updateShown);
                             const selectedSituation = e.target.value;
                             setCodeSituation(selectedSituation);
                           }} name="situation" id="situation" className="input_form">
-                          <option value="" disabled selected hidden>Choose case situation</option>
+                          <option value="" disabled  hidden>Choose case situation</option>
                       <option value="Stable">  Stable </option>
                       <option value="Medium"> Medium</option>
                       <option value="Emergency"> Emergency </option>
@@ -145,11 +145,11 @@ setUpdateDown(!updateShown);
                         </div>
 
                         <div className='input_action_div' >
-                        <select required value={caseStatus} onChange={(e) => {
+                        <select  required value={caseStatus} onChange={(e) => {
                             const selectedSituation = e.target.value;
                             setCaseStatus(selectedSituation);
-                          }} name="situation" id="situation" className="input_form">
-                          <option value="" disabled selected hidden>Choose Status </option>
+                          }} name="status" id="status" className="input_form">
+                          <option value="" disabled  hidden>Choose Status </option>
                       <option value="Done">  Done </option>
                       <option value="UnDone"> UnDone</option>
                     
@@ -158,8 +158,16 @@ setUpdateDown(!updateShown);
                         </div>
     
                        
-    
-                        <input className="login_btn" style={{ width: '100%' , cursor: 'pointer' }} value={'Report'} type="submit" /> 
+                        {loading ? (
+                            <>
+                                <img src="/images/icons/loading-spinner.gif" className='loading_spinner' alt="" />
+                            </>
+                        ) : (
+                            <>
+                            <input className="login_btn" style={{ width: '100%' , cursor: 'pointer' }} value={'Report'} type="submit" /> 
+                            </>
+                        )}
+                      
 
             </form>
                     </div>
@@ -173,7 +181,7 @@ setUpdateDown(!updateShown);
   <table>
 
 <thead>
-  <tr class="thead">
+  <tr className="thead">
     <th scope="col">Code</th>
     <th scope="col">Situation</th>
     <th scope="col">Actions</th>
@@ -184,11 +192,11 @@ setUpdateDown(!updateShown);
 
 {casesArray.map((item , i) => (
   <tr key={i}>
-    <td data-label="name"> {item.code} </td>
-    <td data-label="email"> {item.situation} </td>
+    <td > {item.code} </td>
+    <td > {item.situation} </td>
  
    
-    <td scope="col"  >
+    <td  >
       <button className="p_small bg_green" onClick={() => updateShownMethod( item.code , item.situation  , item.status , item.id ) } >Edit</button>
       <button className="p_small bg_red" onClick={() => deleteRecord(item.id) } >Delete</button>
     </td>

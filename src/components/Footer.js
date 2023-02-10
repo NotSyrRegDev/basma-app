@@ -7,7 +7,7 @@ const Footer = () => {
     <div>
         <div className="main__footer">
         <div className="f-sp d-flex-c">       
-                        <h1 className="main_headline">All Rights Recived <span className="span_bold">@2022</span> </h1>
+                        <h1 className="main_headline">All Rights Recived <span className="span_bold">@{new Date().getFullYear()}</span> </h1>
 
 
                         <button className="signup_btn"> 

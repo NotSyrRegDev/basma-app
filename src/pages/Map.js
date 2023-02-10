@@ -58,5 +58,5 @@ onClose = props => {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCMsrfVkncShzBcb1jWk6_okXOdcq5JQ5I'
+  apiKey: process.env.REACT_APP_GOOGLE_KEY
 })(MapContainer);

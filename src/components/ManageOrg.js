@@ -130,11 +130,11 @@ setUpdateDown(!updateShown);
   <table>
 
 <thead>
-  <tr class="thead">
-    <th scope="col">Name</th>
-    <th scope="col">Site</th>
-    <th scope="col">About</th>
-    <th scope="col">Actions</th>
+  <tr className="thead">
+    <th >Name</th>
+    <th >Site</th>
+    <th >About</th>
+    <th >Actions</th>
    
   </tr>
 </thead>
@@ -143,10 +143,14 @@ setUpdateDown(!updateShown);
 {organizationsArray.map((item , i) => (
   <tr key={i}>
     <td data-label="name"> {item.name} </td>
-    <td data-label="site"> {item.site} </td>
-    <td data-label="about"> {item.about} </td>
+    <td data-label="site"> 
+    <a target="_blank" rel="noopener noreferrer"  className='click_pointer' href={item.site}>
+                 <button className="signup_btn">Visit Site</button>
+                 </a>
+     </td>
+    <td data-label="about"> {item.about.substring(0 , 25)} </td>
    
-    <td scope="col"  >
+    <td   >
       <button className="p_small bg_green" onClick={() => updateShownMethod( item.name , item.email , item.agency , item.id ) } >Edit</button>
       <button className="p_small bg_red" onClick={() => deleteRecord(item.id) } >Delete</button>
     </td>

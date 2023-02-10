@@ -92,7 +92,7 @@ setUpdateDown(!updateShown);
                     const selectedAgency = e.target.value;
                     setAgency(selectedAgency);
                   }} >
-                  <option value="" disabled selected hidden>Choose an agency</option>
+                  <option value="" disabled  hidden>Choose an agency</option>
                   <option value="Red Crescent">Red Crescent</option>
                   <option value="Voluntary health programme">Voluntary health programme</option>
                   <option value="SMAV">SMAV</option>
@@ -134,11 +134,11 @@ setUpdateDown(!updateShown);
   <table>
 
 <thead>
-  <tr class="thead">
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Agency</th>
-    <th scope="col">Actions</th>
+  <tr className="thead">
+    <th >Name</th>
+    <th >Email</th>
+    <th >Agency</th>
+    <th >Actions</th>
    
   </tr>
 </thead>
@@ -150,7 +150,7 @@ setUpdateDown(!updateShown);
     <td data-label="email"> {item.email} </td>
     <td data-label="agency"> {item.agency} </td>
    
-    <td scope="col"  >
+    <td >
       <button className="p_small bg_green" onClick={() => updateShownMethod( item.name , item.email , item.agency , item.id ) } >Edit</button>
       <button className="p_small bg_red" onClick={() => deleteRecord(item.id) } >Delete</button>
     </td>

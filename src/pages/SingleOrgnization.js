@@ -71,7 +71,7 @@ const SingleOrgnization = () => {
                     <div className="mt-1"></div>
                  <h4 className="info_headline"> {orginzation.about} </h4>
                  <div className="mt-1"></div>
-                 <a target="_blank" rel="noreferrer" className='click_pointer' href={orginzation.site}>
+                 <a target="_blank" rel="noopener noreferrer"  className='click_pointer' href={orginzation.site}>
                  <button className="signup_btn">Visit Site</button>
                  </a>
               

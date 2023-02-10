@@ -83,7 +83,7 @@ const Navbar = () => {
 </Link>
             </span>
 
-            {user.is_admin == 1 ? (
+            {user.is_admin === 1 ? (
                 <Link to="/admin" >
                 <button className="btn bg_green p_small">Admin</button>
                 </Link>
@@ -130,7 +130,7 @@ const Navbar = () => {
               
                <img src={user.photo} alt="" className="agency_avatar" />
                </Link>
-               {user.is_admin == 1 ? (
+               {user.is_admin === 1 ? (
                 <Link to="/admin" >
                 <button className="btn bg_green p_small">Admin</button>
                 </Link>
@@ -171,28 +171,28 @@ const Navbar = () => {
     <li className='d-flex-c active' >
     <img src="/images/icons/home.png" alt="" className="nav_icon" />
     <Link to="/">
-        <a href=""> Home </a>
+    Home
         </Link>
     </li>
 
     <li className='d-felx-c' >
     <img src="/images/icons/hospital-building.png" alt="" className="nav_icon" />
     <Link to="/organizations">
-        <a href=""> Organizations </a>
+    Organizations
             </Link>
     </li>
 
     <li className='d-felx-c' >
     <img src="/images/icons/map.png"  alt="" className="nav_icon" />
     <Link to="/map">
-        <a href=""> Map </a>
+    Map
         </Link>
     </li>
 
     <li className='d-felx-c' >
     <img src="/images/icons/report.png"  alt="" className="nav_icon" />
     <Link to="/report">
-        <a href=""> Report Case </a>
+    Report Case
         </Link>
     </li>
 

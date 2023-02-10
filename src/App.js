@@ -8,11 +8,16 @@ import {
   Marker,
   InfoWindow
 } from "react-google-maps";
+import { useGeolocated } from "react-geolocated";
 // import * as parkData from "./data/skateboard-parks.json";
 import mapStyles from "./mapStyles";
 import { Navigate } from "react-router-dom";
 
 function Map() {
+
+  
+
+    
   const [selectedPark, setSelectedPark] = useState(null);
 
     const [parksData , setParksData] = useState([]);
@@ -48,52 +53,72 @@ function Map() {
 
   } , []);
 
-  return (
-    <>
-    {  !user ? <Navigate to="/signIn" replace /> : '' }
-      
-       <GoogleMap
-      defaultZoom={12}
-      defaultCenter={{ lat: 16.896721, lng: 42.553600 }}
-      defaultOptions={{ styles: mapStyles }}
-    >
-      {parksData ? parksData.map(park => (
-        <Marker
-          key={park.key}
-          position={{
-            lat: park.location.latitude,
-            lng: park.location.longitude
-          }}
-          onClick={() => {
-            setSelectedPark(park);
-          }}
-          icon={{
-            url: `/skateboarding.svg`,
-            scaledSize: new window.google.maps.Size(25, 25)
-          }}
-        />
-      )) : ''}
+  const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+    useGeolocated({
+        positionOptions: {
+            enableHighAccuracy: false,
+        },
+        userDecisionTimeout: 5000,
+    });
 
-      {selectedPark && (
-        <InfoWindow
-          onCloseClick={() => {
-            setSelectedPark(null);
-          }}
-          position={{
-            lat: selectedPark.location.latitude,
-            lng: selectedPark.location.longitude
-          }}
-        >
-          <div>
-            {/* <h2>{selectedPark.properties.NAME}</h2>
-            <p>{selectedPark.properties.DESCRIPTIO}</p> */}
-          </div>
-        </InfoWindow>
-      ) }
-    </GoogleMap>
+    return !isGeolocationAvailable ? (
+      <div>Your browser does not support Geolocation</div>
+  ) : !isGeolocationEnabled ? (
+      <div>Geolocation is not enabled</div>
+  ) : coords ? (
+    <>
+       { !user ? <Navigate to="/signUp" replace /> : ''  }
+
+       <GoogleMap
+    defaultZoom={12}
+    defaultCenter={{ lat: coords.latitude, lng: coords.longitude }}
+    defaultOptions={{ styles: mapStyles }}
+  >
+    {parksData ? parksData.map(park => (
+      <Marker
+        key={park.key}
+        position={{
+          lat: park.location.latitude,
+          lng: park.location.longitude
+        }}
+        onClick={() => {
+          setSelectedPark(park);
+        }}
+        icon={{
+          url: `/skateboarding.svg`,
+          scaledSize: new window.google.maps.Size(25, 25)
+        }}
+      />
+    )) : ''}
+ 
+    {selectedPark && (
+      <InfoWindow
+        onCloseClick={() => {
+          setSelectedPark(null);
+        }}
+        position={{
+          lat: selectedPark.location.latitude,
+          lng: selectedPark.location.longitude
+        }}
+      >
+        <div>
+          {/* <h2>{selectedPark.properties.NAME}</h2>
+          <p>{selectedPark.properties.DESCRIPTIO}</p> */}
+        </div>
+      </InfoWindow>
+    ) }
+  </GoogleMap>
+
     </>
-   
+ 
+  ) : (
+      <div>Getting the location data&hellip; </div>
   );
+    
+   
+    
+   
+ 
 }
 
 const MapWrapped = withScriptjs(withGoogleMap(Map));

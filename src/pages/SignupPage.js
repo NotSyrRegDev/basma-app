@@ -153,7 +153,7 @@ const SignupPage = () => {
                         const selectedAgency = e.target.value;
                         setAgency(selectedAgency);
                       }} >
-                       <option value="" disabled  hidden>Choose an agency</option>
+                       <option value=""   hidden>Choose an agency</option>
                   <option value="Red Crescent">Red Crescent</option>
                   <option value="Voluntary health programme">Voluntary health programme</option>
                   <option value="SMAV">SMAV</option>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import {   Navigate } from 'react-router-dom';
+import ManageOrginzationCases from '../components/ManageOrginzationCases';
 import    { collection , where , query , db , getDocs} from '../firebase';
 import './SingleOrgnization.css';
 
@@ -30,6 +31,7 @@ const SingleOrgnization = () => {
 
     getOrginazationData();
 
+    
    
  
   } , [orginzation])
@@ -95,13 +97,15 @@ const SingleOrgnization = () => {
         <div className="mt-5"></div>
             <h1 className="main_headline text-center">Alhilal Statistics  </h1>
             <div className="mt-3"></div>
-            <div className="d-flex-c f-sv f-wrap">
+
+            {orginzation && (
+              <div className="d-flex-c f-sv f-wrap">
 
 <div className="single_statistic_div">
     <img src="/images/icons/group.png" alt="" />
     <h1 className="main_headline">Stable Cases</h1>
     <div className="mt-1"></div>
-    <h4 className="info_group">0</h4>
+    <h4 className="info_group"> {orginzation.stable_case_number} </h4>
 
 </div>
 
@@ -111,7 +115,7 @@ const SingleOrgnization = () => {
     <img src="/images/icons/group.png" alt="" />
     <h1 className="main_headline">Medium Cases </h1>
     <div className="mt-1"></div>
-    <h4 className="info_group">0</h4>
+    <h4 className="info_group"> {orginzation.medium_case_number} </h4>
     
 </div>
 
@@ -121,11 +125,19 @@ const SingleOrgnization = () => {
     <img src="/images/icons/group.png" alt="" />
     <h1 className="main_headline">Critical Cases </h1>
     <div className="mt-1"></div>
-    <h4 className="info_group">0</h4>
+    <h4 className="info_group"> {orginzation.critical_case_number} </h4>
 
 </div>
 
           </div>
+            )}
+
+              {orginzation && (
+
+              <>
+                <ManageOrginzationCases  agencyId={ orginzation.id  }  />
+              </>
+              )}
 
          
 

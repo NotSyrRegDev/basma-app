@@ -3,9 +3,9 @@ import {collection   ,  doc , db , getDocs , deleteDoc , setDoc , query , where}
 import { useGeolocated } from "react-geolocated";
 
 
-const ManageCases = () => {
+const ManageOrginzationCases = ( {agencyId = "EpYGSdnWEJkiS47BjNsP"} ) => {
 
-   
+  
 
     const {  coords , isGeolocationAvailable } =
         useGeolocated({
@@ -17,7 +17,7 @@ const ManageCases = () => {
         
  
     
-    
+   
 
   const [casesArray , setCasesArray] = useState([]);
 
@@ -37,15 +37,21 @@ const ManageCases = () => {
 
     const getParksData = async () => { 
 
-        const q = query(collection(db, "cases"), where("status", "==", "UnDone"));
-   
-        const querySnapshot = await getDocs(q);
       
-        const casesDataArray = querySnapshot.docs ? querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })) : '';
 
-
+       
+            const q = query(collection(db, "cases"), where("status", "==", "UnDone") , where("agency_id" , "==" , agencyId));
+   
+            const querySnapshot = await getDocs(q);
+          
+            const casesDataArray = querySnapshot.docs ? querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })) : '';
+    
+            console.log(agencyId)
+          
+            
+          setCasesArray(casesDataArray);
         
-      setCasesArray(casesDataArray);
+       
      
     }
   
@@ -219,4 +225,4 @@ setUpdateDown(!updateShown);
   )
 }
 
-export default ManageCases
+export default ManageOrginzationCases

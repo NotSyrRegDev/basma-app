@@ -1,16 +1,36 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect} from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
-import {setDoc , doc , db  } from '../firebase';
+import {setDoc , doc , db , updateDoc , where , collection , query , getDocs , increment  } from '../firebase';
 import { useGeolocated } from "react-geolocated";
 import makeid from '../utils/makeid';
 import './ReportPage.css';
 
 
 
+
+
 const ReportPage = () => {
 
+    const [orginzationid , setOrginzationId] = useState('');
 
-    
+    useEffect(() => {
+
+        const getAgencyRelate = async () => {
+            const q = query(collection(db, "organizations"), where("name", "==", user.agency));
+   
+            const querySnapshot = await getDocs(q);
+          
+            const foundedDataArray = querySnapshot.docs ? querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })) : '';
+          
+            setOrginzationId(foundedDataArray[0].id);
+          
+
+        }
+        getAgencyRelate();
+
+
+    } , [])
+       
 
     const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
@@ -74,13 +94,53 @@ const ReportPage = () => {
             }
 
             const cases = await setDoc(doc(db, "cases", makeid(20)), {
+                agency_id: orginzationid,
                 code: caseCode,
                 location: coordsObject,
                 situation: codeSituation,
                 status: "UnDone",
-                
-                
+              
               });
+              const docRef = doc(db, "organizations", orginzationid);
+
+              const staticRef = doc(db, "statistics", "cBx7Bqex76nwxf9QbVK2");
+
+              
+             
+
+              if (codeSituation === "Stable") {
+                const data = {
+                    stable_case_number: increment(1)
+                  }
+                  await updateDoc(docRef, data);
+                  await updateDoc(staticRef, data);
+
+              }
+
+              if (codeSituation === "Medium") {
+                    
+                    const data = {
+                        medium_case_number: increment(1)
+                      }
+                      await updateDoc(docRef, data);
+                      await updateDoc(staticRef, data);
+
+              }
+
+              if (codeSituation === "Emergency") {
+                  
+                    const data = {
+                        critical_case_number: increment(1)
+                      }
+                      await updateDoc(docRef, data);
+                      await updateDoc(staticRef, data);
+
+              }
+
+
+             
+
+             
 
               setLoading(false);
               setSuccess("Case Report Done ☑️");
@@ -143,7 +203,7 @@ const ReportPage = () => {
                             const selectedSituation = e.target.value;
                             setCodeSituation(selectedSituation);
                           }} name="situation" id="situation" className="input_form">
-                         <option value="DEFAULT" disabled>Choose case situation</option>
+                         <option value="DEFAULT" >Choose case situation</option>
                       <option value="Stable">  Stable </option>
                       <option value="Medium"> Medium</option>
                       <option value="Emergency"> Emergency </option>
